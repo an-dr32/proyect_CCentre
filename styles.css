@@ -77,8 +77,8 @@ html {
   transform: translateX(-50%); /* center horizontally */
   border: 0.1px solid #d1d0ce; /* faint gray */
   border-radius: 5px;
-  pointer-events: none;
-  z-index: 0;
+  pointer-events: auto;
+  z-index: 10;
 }
 
 header {
@@ -262,6 +262,15 @@ section {
   color: var(--color-text);
 }
 
+#click-through-zone {
+  position: absolute;
+  z-index: 100;
+  top: 62%; /* or wherever the button sits */
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: auto; /* ✅ Clickable */
+}
+
 .cta-button {
   padding: 0.75rem 2rem;
   background-color: var(--color-secondary);
@@ -270,6 +279,7 @@ section {
   border-radius: 5px;
   font-weight: bold;
   transition: transform 0.3s ease, background 0.3s;
+  z-index: 11;
 }
 
 .cta-button:hover {
@@ -286,12 +296,13 @@ section {
   opacity: 1;
   transform: none;
 }
-/* Classes section */
 
+/* Classes section */
 .classes-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  align-items: stretch;
   padding: 4rem 2rem;
   background-color: var(--color-bg);
   border: 0.1px solid #d1d0ce;
@@ -319,28 +330,37 @@ section {
 }
 
 .class-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 1.5rem;
+  padding-bottom: 2.5rem; /* ✅ Prevent overlap visually */
 }
 
 .class-content h3 {
   margin-bottom: 1rem;
   font-size: 1.25rem;
-  color: #333333;
+  color: var(--color-text);
 }
 
 .class-content p {
   margin-bottom: 1.5rem;
-  color: #666666;
+  color: var(--color-text);
   font-size: 1rem;
+  line-height: 1.5;
 }
 
 .class-actions {
+  margin-top: auto;
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .btn {
   padding: 0.75rem 1.5rem;
+  margin-bottom: 1rem;
   border: none;
   border-radius: 4px;
   text-decoration: none;
@@ -349,96 +369,76 @@ section {
 }
 
 .btn.primary {
-  background-color: #007bff;
+  background-color: var(--color-primary);
   color: #ffffff;
 }
 
 .btn.primary:hover {
-  background-color: #0056b3;
+  background-color: var(--color-primary-dark);
 }
 
 .btn.secondary {
-  background-color: #6c757d;
+  background-color: var(--color-secondary);
   color: #ffffff;
 }
 
 .btn.secondary:hover {
-  background-color: #5a6268;
+  background-color: var(--color-secondary-dark);
 }
 
-/* Features section */
-.features {
+.class-card {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  gap: 3rem;
-  padding: 8rem 2rem;
-  margin-top: -10rem;
-
-  background-image: url("assets/human.png");
-  background-size: 30%;
-  background-position: right;
-  background-repeat: no-repeat;
-
-  position: relative;
-  z-index: 0;
+  background-color: var(--color-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 0.1px solid #d1d0ce;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.05) inset;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%; /* Ensures equal height if used in a grid */
 }
 
-@media (max-width: 768px) {
-  .features {
-    flex-direction: column;
-    background-position: top;
-  }
-}
-
-.features::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.8
-  ); /* or use rgba(0,0,0,.5) for dark */
-  z-index: 1;
-}
-
-.features .feature {
-  position: relative;
-  flex: 1;
-  padding: 2rem;
-  min-width: 30%;
-  background: var(--color-bg-overlay);
-  color: var(--color-text);
-  border-radius: 12px;
-  box-shadow: 0 0 20px var(--color-box-shadow);
-  z-index: 2;
-}
-.features .feature h3 {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-}
-.features .feature p {
-  font-size: 1rem;
-  color: var(--color-text);
-}
-.features .human1 {
-  position: absolute;
-  z-index: 1;
-  height: 30rem;
+.class-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-
-  border-radius: 12px;
+  flex-direction: column;
+  gap: 0.5rem;
 }
-.features .feature .feature-icon {
-  font-size: 3rem;
+
+.class-content ul li {
+  display: flex;
+  align-items: flex-start;
+}
+
+.class-content .check {
   color: var(--color-primary);
-  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+  line-height: 1.3;
+  width: 1.2em; /* fixes alignment */
+  text-align: center;
+}
+
+.class-content .text {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.class-price-banner {
+  background-color: var(--color-primary);
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.75rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 0 0 8px 8px;
+  flex-shrink: 0;
 }
 
 /* Footer */
@@ -519,6 +519,7 @@ footer a:hover {
 
   #mobileMenu.open {
     display: block;
+    background-color: var(--color-secondary-lightest);
   }
 
   .main-nav {
@@ -589,6 +590,51 @@ footer a:hover {
     font-size: 0.9rem;
   }
 
+  .class-card {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 400px;
+  }
+  .class-card .class-content {
+    padding: 1rem;
+  }
+  .class-card h3 {
+    font-size: 1.5rem;
+  }
+  .class-card p {
+    font-size: 0.9rem;
+  }
+  .class-card .class-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .class-card .class-actions .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  .class-card .class-actions .btn.primary {
+    background-color: var(--color-primary);
+  }
+  .class-card .class-actions .btn.primary:hover {
+    background-color: var(--color-primary-dark);
+  }
+  .class-card .class-actions .btn.secondary {
+    background-color: var(--color-secondary);
+  }
+  .class-card .class-actions .btn.secondary:hover {
+    background-color: var(--color-secondary-dark);
+  }
+
+  .class-card img {
+    max-width: 60%;
+    height: 50%;
+    object-fit: cover;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   section {
     padding: 2rem 1rem;
   }
@@ -597,6 +643,7 @@ footer a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-position: top;
   }
 
   footer {
@@ -693,6 +740,13 @@ footer a:hover {
   z-index: 100;
   pointer-events: none;
   transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 1;
+}
+
+.scroll-cue.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
 }
 
 .scroll-symbol {

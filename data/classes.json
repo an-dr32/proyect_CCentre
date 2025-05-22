@@ -1,44 +1,100 @@
 [
   {
-    "title": "Introduction to Computer Science",
-    "description": "Learn the fundamentals of algorithms, programming, and software engineering.",
+    "title": "Curso de Python",
+    "description": "Aprende Python desde cero y crea tus propios proyectos.",
     "image": "assets/class-compsci.png",
     "detailsLink": "/classes/computer-science",
-    "enrollLink": "/enroll/computer-science"
+    "enrollLink": "/enroll/computer-science",
+    "time": "9:00 AM - 11:00 AM",
+    "date": "Fecha de Inicio: <br>2023-10-01",
+    "duration": "Duracion: <br>3 months",
+    "level": "Nivel: <br>Beginner",
+    "location": "Cra 50 # 72-126",
+    "price": "Aporte: <br>$340.000"
   },
   {
-    "title": "Digital Marketing Essentials",
+    "title": "Curso de Figma",
     "description": "Master SEO, social media, and email campaigns in this hands-on marketing course.",
-    "image": "assets/class-marketing.jpg",
+    "image": "assets/class-marketing.png",
     "detailsLink": "/classes/marketing",
-    "enrollLink": "/enroll/marketing"
+    "enrollLink": "/enroll/marketing",
+    "time": "9:00 AM - 11:00 AM",
+    "date": "Fecha de Inicio: <br>2023-10-01",
+    "duration": "Duracion: <br>3 months",
+    "level": "Nivel: <br>Beginner",
+    "location": "Cra 50 # 72-126",
+    "price": "Aporte: <br>$340.000"
   },
   {
-    "title": "Psychology 101",
+    "title": "Curso Analítica de Datos",
     "description": "Explore the science of behavior and mental processes in humans and animals.",
-    "image": "assets/class-psychology.jpg",
+    "image": "assets/class-psychology.png",
     "detailsLink": "/classes/psychology",
-    "enrollLink": "/enroll/psychology"
+    "enrollLink": "/enroll/psychology",
+    "time": "9:00 AM - 11:00 AM",
+    "date": "Fecha de Inicio: <br>2023-10-01",
+    "duration": "Duracion: <br>3 months",
+    "level": "Nivel: <br>Beginner",
+    "location": "Cra 50 # 72-126",
+    "price": "Aporte: <br>$340.000"
   },
   {
     "title": "Art & Design Fundamentals",
     "description": "Learn composition, color theory, and modern design tools from industry pros.",
-    "image": "assets/class-art.jpg",
+    "image": "assets/class-art.png",
     "detailsLink": "/classes/art-design",
-    "enrollLink": "/enroll/art-design"
+    "enrollLink": "/enroll/art-design",
+    "time": "9:00 AM - 11:00 AM",
+    "date": "Fecha de Inicio: <br>2023-10-01",
+    "duration": "Duracion: <br>3 months",
+    "level": "Nivel: <br>Beginner",
+    "location": "Cra 50 # 72-126",
+    "price": "Aporte: <br>$340.000"
   },
   {
     "title": "Entrepreneurship & Innovation",
     "description": "Build your own startup idea and learn business models, pitching, and funding.",
-    "image": "assets/class-entrepreneurship.jpg",
+    "image": "assets/class-entrepreneurship.png",
     "detailsLink": "/classes/entrepreneurship",
     "enrollLink": "/enroll/entrepreneurship"
   },
   {
     "title": "Web Development Bootcamp",
     "description": "Become a full-stack web developer using HTML, CSS, JavaScript, and React.",
-    "image": "assets/class-webdev.jpg",
+    "image": "assets/class-webdev.png",
     "detailsLink": "/classes/web-development",
-    "enrollLink": "/enroll/web-development"
+    "enrollLink": "/enroll/web-development",
+    "time": "9:00 AM - 11:00 AM",
+    "date": "Fecha de Inicio: <br>2023-10-01",
+    "duration": "Duracion: <br>3 months",
+    "level": "Nivel: <br>Beginner",
+    "location": "Cra 50 # 72-126",
+    "price": "Aporte: <br>$340.000"
+  },
+  {
+    "title": "Web Development Bootcamp",
+    "description": "Become a full-stack web developer using HTML, CSS, JavaScript, and React.",
+    "image": "assets/class-webdev.png",
+    "detailsLink": "/classes/web-development",
+    "enrollLink": "/enroll/web-development",
+    "time": "9:00 AM - 11:00 AM",
+    "date": "Fecha de Inicio: <br>2023-10-01",
+    "duration": "Duracion: <br>3 months",
+    "level": "Nivel: <br>Beginner",
+    "location": "Cra 50 # 72-126",
+    "price": "Aporte: <br>$340.000"
+  },
+  {
+    "title": "Web Development Bootcamp",
+    "description": "Become a full-stack web developer using HTML, CSS, JavaScript, and React.",
+    "image": "assets/class-webdev.png",
+    "detailsLink": "/classes/web-development",
+    "enrollLink": "/enroll/web-development",
+    "time": "9:00 AM - 11:00 AM",
+    "date": "Fecha de Inicio: <br>2023-10-01",
+    "duration": "Duracion: <br>3 months",
+    "level": "Nivel: <br>Beginner",
+    "location": "Cra 50 # 72-126",
+    "price": "Aporte: <br>$340.000"
   }
 ]
