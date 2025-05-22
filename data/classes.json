@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Introduction to Computer Science",
+    "description": "Learn the fundamentals of algorithms, programming, and software engineering.",
+    "image": "assets/class-compsci.png",
+    "detailsLink": "/classes/computer-science",
+    "enrollLink": "/enroll/computer-science"
+  },
+  {
+    "title": "Digital Marketing Essentials",
+    "description": "Master SEO, social media, and email campaigns in this hands-on marketing course.",
+    "image": "assets/class-marketing.jpg",
+    "detailsLink": "/classes/marketing",
+    "enrollLink": "/enroll/marketing"
+  },
+  {
+    "title": "Psychology 101",
+    "description": "Explore the science of behavior and mental processes in humans and animals.",
+    "image": "assets/class-psychology.jpg",
+    "detailsLink": "/classes/psychology",
+    "enrollLink": "/enroll/psychology"
+  },
+  {
+    "title": "Art & Design Fundamentals",
+    "description": "Learn composition, color theory, and modern design tools from industry pros.",
+    "image": "assets/class-art.jpg",
+    "detailsLink": "/classes/art-design",
+    "enrollLink": "/enroll/art-design"
+  },
+  {
+    "title": "Entrepreneurship & Innovation",
+    "description": "Build your own startup idea and learn business models, pitching, and funding.",
+    "image": "assets/class-entrepreneurship.jpg",
+    "detailsLink": "/classes/entrepreneurship",
+    "enrollLink": "/enroll/entrepreneurship"
+  },
+  {
+    "title": "Web Development Bootcamp",
+    "description": "Become a full-stack web developer using HTML, CSS, JavaScript, and React.",
+    "image": "assets/class-webdev.jpg",
+    "detailsLink": "/classes/web-development",
+    "enrollLink": "/enroll/web-development"
+  }
+]

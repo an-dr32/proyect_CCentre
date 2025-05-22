@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Codigo Abierto</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="background"></div>
+    <canvas id="asciiCanvas"></canvas>
+    <div class="custom-cursor" id="customCursor"></div>
+
+    <div class="content">
+      <header>
+        <h2>MANTENTE INFORMADO CON NOSOTROS:</h2>
+        <button>SIGN UP FOR OUR NEWSLETTER</button>
+      </header>
+
+      <!-- Navigation -->
+      <div class="navbar">
+        <div class="navbar-header">
+          <div class="logo-wrapper">
+            <div class="logo" id="navbar-logo">
+              <div class="line" id="navbar-line1"></div>
+              <div class="line" id="navbar-line2"></div>
+            </div>
+          </div>
+          <button class="hamburger" id="hamburger">&#9776;</button>
+        </div>
+
+        <!-- Desktop Nav -->
+        <nav class="main-nav">
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Admissions</a></li>
+            <li><a href="#">Programs</a></li>
+            <li><a href="#">Campus Life</a></li>
+            <li><a href="#">Contact</a></li>
+            <li class="actions">
+              <button>SIGN IN</button>
+              <button class="applyButton">APPLY NOW</button>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Mobile Nav -->
+        <nav id="mobileMenu" class="nav">
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Admissions</a></li>
+            <li><a href="#">Programs</a></li>
+            <li><a href="#">Campus Life</a></li>
+            <li><a href="#">Contact</a></li>
+            <li class="actions">
+              <button>SIGN IN</button>
+              <button class="applyButton">APPLY NOW</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Hero -->
+      <main class="hero">
+        <div class="logo-wrapper">
+          <div class="logo" id="hero-logo">
+            <div class="line" id="hero-line1"></div>
+            <div class="line" id="hero-line2"></div>
+          </div>
+        </div>
+        <h1>Fundacion CODIGO ABIERTO</h1>
+        <p>Dandote un rumbo para conquistar los mares del coding.</p>
+        <a href="#" class="cta-button">Get Started</a>
+      </main>
+
+      <!-- Classes will load here -->
+      <section id="college-classes" class="classes-section"></section>
+      <!--  <section class="features">
+        <div class="feature">
+          <h3>Innovative Programs</h3>
+          <p>
+            Explore our diverse range of programs designed to foster creativity
+            and innovation.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>State-of-the-Art Facilities</h3>
+          <p>
+            Experience our modern campus equipped with the latest technology and
+            resources.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Expert Faculty</h3>
+          <p>
+            Learn from industry leaders and experienced educators dedicated to
+            your success.
+          </p>
+        </div>
+      </section> -->
+
+      <section class="testimonials">
+        <h2>What Our Students Say</h2>
+        <div class="testimonial">
+          <p>
+            "My College has transformed my life. The opportunities here are
+            endless!"
+          </p>
+          <cite>- Student A</cite>
+        </div>
+        <div class="testimonial">
+          <p>
+            "The faculty is incredibly supportive and knowledgeable. I couldn't
+            ask for a better experience."
+          </p>
+          <cite>- Student B</cite>
+        </div>
+        <div class="testimonial">
+          <p>
+            "The campus life is vibrant and full of energy. I've made lifelong
+            friends here."
+          </p>
+          <cite>- Student C</cite>
+        </div>
+      </section>
+
+      <section class="cta">
+        <h2>Join Us Today!</h2>
+        <p>
+          Take the first step towards a brighter future. Apply now and become
+          part of our community.
+        </p>
+        <button href="#" class="cta-button">Apply Now</button>
+      </section>
+
+      <footer>
+        <p>&copy; 2023 My College. All rights reserved.</p>
+        <ul class="social-media">
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+        <p>
+          Contact us:
+          <a href="mailto:email@mycollege.com">email@mycollege.com</a>
+        </p>
+      </footer>
+    </div>
+
+   <!-- Scroll Cue -->
+      <div id="scrollCue" class="scroll-cue">
+        <span class="scroll-symbol">↓</span>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+  </body>
+</html>
