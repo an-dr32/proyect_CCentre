@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Your state
   let explosions = [];
+  const MAX_EXPLOSIONS = 2;
   let ripples = [];
   let columns = [];
   let columnCount, maxHeight;
@@ -190,6 +191,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   canvas.addEventListener("click", (e) => {
+    if (explosions.length >= MAX_EXPLOSIONS) return;
+
     const rect = canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -207,6 +210,23 @@ document.addEventListener("DOMContentLoaded", () => {
     if (cursor) {
       cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
     }
+  });
+
+  function getTouchPos(e) {
+    const touch = e.touches[0];
+    const rect = canvas.getBoundingClientRect();
+    return {
+      x: touch.clientX - rect.left,
+      y: touch.clientY - rect.top,
+    };
+  }
+
+  canvas.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    if (explosions.length >= MAX_EXPLOSIONS) return;
+    const { x, y } = getTouchPos(e);
+    explosions.push({ x, y, time: performance.now() });
+    ripples.push({ x, y, start: performance.now() });
   });
 });
 
@@ -355,7 +375,10 @@ const hideCueObserver = new IntersectionObserver(
       scrollCue.classList.add("hidden");
     }
   },
-  { threshold: 0.1 }
+  {
+    threshold: 0.1,
+    rootMargin: "100px 0px",
+  }
 );
 
 // Observer to show scroll cue when user scrolls back to top

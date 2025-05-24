@@ -345,13 +345,13 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center ;
+  text-align: center;
   font-size: 1.25rem;
   color: var(--color-text);
 }
 
 .class-content span {
-  margin: 0.5rem 0;
+  margin: 0.1rem 0 1rem 0;
   text-align: center;
   line-height: 1.5;
   font-size: 1rem;
@@ -365,7 +365,6 @@ section {
   line-height: 1.5;
   display: block;
   color: var(--color-gray);
-  
 }
 
 .class-actions {
@@ -528,11 +527,14 @@ footer a:hover {
     overflow-x: auto;
     white-space: nowrap;
     width: 100%;
-    z-index: 999;
+    z-index: 1000;
     overflow-x: auto;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
   }
+
   #mobileMenu::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
   }
@@ -700,7 +702,6 @@ footer a:hover {
   .class-content ul {
     gap: 0;
     margin: 0 0 1rem 0;
-   
   }
 
   .class-card img {
@@ -799,6 +800,21 @@ footer a:hover {
 
 .glitch-font-3 {
   font-family: "Lucida Console", Monaco, monospace;
+}
+
+@media (max-width: 480px) {
+  .custom-cursor {
+    opacity: 0;
+  }
+  .classes-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  .classes-section .class-tags{
+    margin-top: 2rem;
+  }
 }
 
 /* Make font scale down on small screens */
