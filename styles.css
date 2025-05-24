@@ -810,23 +810,67 @@ footer a:hover {
 
   #asciiCanvas {
     display: block;
-    position: fixed; /* < changed from absolute */
+    position: absolute; /* < changed from absolute */
     width: 100vw;
     height: 100vh;
-    z-index: 1; /* keep behind everything except background */
-    pointer-events: none; /* disable interaction unless needed */
+    z-index: 1;
+    pointer-events: none;
   }
 
   #mobileMenu {
     overflow-x: auto;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
-    z-index: 1001; /* stay above canvas and hero */
+    z-index: 1001;
   }
 
   #mobileMenu ul {
     display: flex;
     width: max-content;
+  }
+
+  #mobileMenu ul li {
+    flex-shrink: 0;
+  }
+
+  #mobileMenu ul li a,
+  #mobileMenu ul button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+    background: none;
+    border: none;
+    font: inherit;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+  #mobileMenu ul button {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  #mobileMenu ul button:hover {
+    background-color: var(--color-primary-dark);
+  }
+
+  #mobileMenu ul li .applyButton {
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+  }
+
+  #mobileMenu ul li .applyButton:hover {
+    background-color: var(--color-secondary-dark);
+  }
+
+  #mobileMenu ul li a:hover {
+    color: var(--color-primary);
+  }
+
+  #mobileMenu ul li.actions {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
   }
 
   .classes-section {

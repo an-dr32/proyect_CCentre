@@ -354,6 +354,18 @@ const observer = new IntersectionObserver((entries) => {
 fadeEls.forEach((el) => observer.observe(el));
 
 // === HAMBURGER MENU ===
+
+function enableCanvasInteraction() {
+  const menuOpen = document
+    .getElementById("mobileMenu")
+    ?.classList.contains("open");
+  if (!menuOpen) canvas.style.pointerEvents = "auto";
+}
+
+function disableCanvasInteraction() {
+  canvas.style.pointerEvents = "none";
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.getElementById("hamburger");
   const mobileMenu = document.getElementById("mobileMenu");
@@ -362,9 +374,17 @@ document.addEventListener("DOMContentLoaded", () => {
     mobileMenu.classList.toggle("open");
 
     if (mobileMenu.classList.contains("open")) {
-      canvas.style.pointerEvents = "none";
+      disableCanvasInteraction();
     } else {
-      canvas.style.pointerEvents = "auto";
+      enableCanvasInteraction();
+    }
+  });
+  document.addEventListener("mousemove", (e) => {
+    const hovered = document.elementFromPoint(e.clientX, e.clientY);
+    if (hovered.closest(".navbar") || hovered.closest("#mobileMenu")) {
+      disableCanvasInteraction();
+    } else {
+      enableCanvasInteraction();
     }
   });
 });
@@ -455,4 +475,35 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch((err) => {
       console.error("Failed to load class data:", err);
     });
+});
+
+const mobileMenu = document.getElementById("mobileMenu");
+
+let isDown = false;
+let startX;
+let scrollLeft;
+
+mobileMenu.addEventListener("mousedown", (e) => {
+  isDown = true;
+  mobileMenu.classList.add("scrolling");
+  startX = e.pageX - mobileMenu.offsetLeft;
+  scrollLeft = mobileMenu.scrollLeft;
+});
+
+mobileMenu.addEventListener("mouseleave", () => {
+  isDown = false;
+  mobileMenu.classList.remove("scrolling");
+});
+
+mobileMenu.addEventListener("mouseup", () => {
+  isDown = false;
+  mobileMenu.classList.remove("scrolling");
+});
+
+mobileMenu.addEventListener("mousemove", (e) => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - mobileMenu.offsetLeft;
+  const walk = (x - startX) * 2; // scroll speed multiplier
+  mobileMenu.scrollLeft = scrollLeft - walk;
 });
