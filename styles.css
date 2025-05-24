@@ -71,7 +71,7 @@ html {
 /* Ascii canvas */
 #asciiCanvas {
   display: block;
-  position: fixed;
+  position: absolute;
   inset: 0;
   left: 50%;
   top: 11%; /* top 25% leaves 75% at the bottom */
@@ -528,12 +528,12 @@ footer a:hover {
     overflow-x: auto;
     white-space: nowrap;
     width: 100%;
-    z-index: 1000;
     overflow-x: auto;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
     white-space: nowrap;
     -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    z-index: 1001;
   }
 
   #mobileMenu::-webkit-scrollbar {
@@ -573,6 +573,17 @@ footer a:hover {
     font: inherit;
     color: var(--color-text);
     text-decoration: none;
+  }
+
+  #mobileMenu ul li a:hover {
+    color: var(--color-primary);
+  }
+  #mobileMenu ul li .applyButton {
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+  } 
+  #mobileMenu ul li .applyButton:hover {
+    background-color: var(--color-secondary-dark);
   }
 
   #mobileMenu ul button {
