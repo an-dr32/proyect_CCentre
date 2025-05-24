@@ -91,9 +91,9 @@ document.addEventListener("DOMContentLoaded", () => {
       e.clientY >= rect.top &&
       e.clientY <= rect.bottom
     ) {
-      canvas.style.pointerEvents = "none"; // 👈 Let button get click
-    } else {
-      canvas.style.pointerEvents = "auto"; // 👈 Canvas gets click
+      canvas.style.pointerEvents = "none";
+    } else if (!mobileMenu.classList.contains("open")) {
+      canvas.style.pointerEvents = "auto";
     }
   });
 
@@ -360,7 +360,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   hamburger.addEventListener("click", () => {
     mobileMenu.classList.toggle("open");
-    console.log("Hamburger menu clicked");
+
+    if (mobileMenu.classList.contains("open")) {
+      canvas.style.pointerEvents = "none";
+    } else {
+      canvas.style.pointerEvents = "auto";
+    }
   });
 });
 

@@ -71,7 +71,8 @@ html {
 /* Ascii canvas */
 #asciiCanvas {
   display: block;
-  position: absolute;
+  position: fixed;
+  inset: 0;
   left: 50%;
   top: 11%; /* top 25% leaves 75% at the bottom */
   width: 97vw; /* 90% of the viewport width */
@@ -806,13 +807,35 @@ footer a:hover {
   .custom-cursor {
     opacity: 0;
   }
+
+  #asciiCanvas {
+    display: block;
+    position: fixed; /* < changed from absolute */
+    width: 100vw;
+    height: 100vh;
+    z-index: 1; /* keep behind everything except background */
+    pointer-events: none; /* disable interaction unless needed */
+  }
+
+  #mobileMenu {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    z-index: 1001; /* stay above canvas and hero */
+  }
+
+  #mobileMenu ul {
+    display: flex;
+    width: max-content;
+  }
+
   .classes-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 1rem;
   }
-  .classes-section .class-tags{
+  .classes-section .class-tags {
     margin-top: 2rem;
   }
 }
