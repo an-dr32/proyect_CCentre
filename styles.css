@@ -24,11 +24,13 @@
   --color-accent-lightest: #fff9c4;
   --color-dark: #111;
   --color-light: #fff;
-  --color-gray: #9f9f9f;
+  --color-gray: #7d7d7d;
   --color-text: #333;
   --color-box-shadow: #0000000d;
   --color-bg-overlay: #ffffffe6;
   --color-bg: #f2f0ed;
+  --color-bg-alt: #e2effc;
+  --color-bg-alt-gray: #f1eeee;
   --color-ocean: #7bdaff;
 }
 
@@ -304,13 +306,13 @@ section {
   gap: 2rem;
   align-items: stretch;
   padding: 4rem 2rem;
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-alt);
   border: 0.1px solid #d1d0ce;
   margin-top: -10rem;
 }
 
 .class-card {
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-alt-gray);
   border-radius: 8px;
   overflow: hidden;
   border: 0.1px solid #d1d0ce;
@@ -321,6 +323,7 @@ section {
 .class-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background-color: var(--color-bg);
 }
 
 .class-card img {
@@ -339,16 +342,30 @@ section {
 }
 
 .class-content h3 {
-  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center ;
   font-size: 1.25rem;
   color: var(--color-text);
 }
 
+.class-content span {
+  margin: 0.5rem 0;
+  text-align: center;
+  line-height: 1.5;
+  font-size: 1rem;
+  display: block;
+  color: var(--color-gray);
+}
+
 .class-content p {
-  margin-bottom: 1.5rem;
-  color: var(--color-text);
+  margin: 1rem 0;
   font-size: 1rem;
   line-height: 1.5;
+  display: block;
+  color: var(--color-gray);
+  
 }
 
 .class-actions {
@@ -356,6 +373,19 @@ section {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.class-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 0.1px solid #d1d0ce;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.05) inset;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%; /* Ensures equal height if used in a grid */
 }
 
 .btn {
@@ -366,6 +396,8 @@ section {
   text-decoration: none;
   font-weight: bold;
   transition: background-color 0.3s ease;
+  text-align: center;
+  color: var(--color-light);
 }
 
 .btn.primary {
@@ -386,23 +418,10 @@ section {
   background-color: var(--color-secondary-dark);
 }
 
-.class-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: var(--color-bg);
-  border-radius: 8px;
-  overflow: hidden;
-  border: 0.1px solid #d1d0ce;
-  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.05) inset;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 100%; /* Ensures equal height if used in a grid */
-}
-
 .class-content ul {
   list-style: none;
   padding: 0;
-  margin: 1rem 0 0;
+  margin: 0 0 0;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -439,6 +458,7 @@ section {
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 0 0 8px 8px;
   flex-shrink: 0;
+  margin-top: -1.9rem;
 }
 
 /* Footer */
@@ -573,8 +593,12 @@ footer a:hover {
     transform: translateY(-5rem); /* less aggressive on mobile */
     height: auto;
     padding: 15rem 1rem 1rem 1rem;
-    margin-bottom: 24rem;
+    margin-bottom: 75%;
     text-align: left;
+  }
+
+  .hero .logo-wrapper #hero-logo {
+    margin-left: 14rem;
   }
 
   .hero h1 {
@@ -585,6 +609,15 @@ footer a:hover {
     font-size: 1rem;
   }
 
+  #click-through-zone {
+    position: absolute;
+    z-index: 100;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: auto; /* ✅ Clickable */
+  }
+
   .cta-button {
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
@@ -592,23 +625,57 @@ footer a:hover {
 
   .class-card {
     margin: 0 auto;
-    width: 90%;
-    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--color-bg-alt-gray);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 0.1px solid #d1d0ce;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.05) inset;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Ensures equal height if used in a grid */
   }
+  .class-card:hover {
+    background-color: var(--color-bg);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
   .class-card .class-content {
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1.5rem;
+    padding-bottom: 2rem; /* ✅ Prevent overlap visually */
+    flex: 1;
+    justify-content: space-between;
   }
+
   .class-card h3 {
     font-size: 1.5rem;
+    margin-bottom: -1rem;
   }
-  .class-card p {
-    font-size: 0.9rem;
+
+  .class-card span {
+    margin-top: 1rem;
+    line-height: 1.5;
+    font-size: 1rem;
+    display: block;
+    color: var(--color-gray);
   }
+
   .class-card .class-actions {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    flex-wrap: wrap;
+    line-height: 1.5;
+    font-size: 1rem;
+    margin-top: -0.5rem;
+    margin-bottom: -2rem;
   }
+
   .class-card .class-actions .btn {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
@@ -626,8 +693,18 @@ footer a:hover {
     background-color: var(--color-secondary-dark);
   }
 
+  ul.class-tags {
+    margin-top: -0.7rem;
+  }
+
+  .class-content ul {
+    gap: 0;
+    margin: 0 0 1rem 0;
+   
+  }
+
   .class-card img {
-    max-width: 60%;
+    max-width: 100%;
     height: 50%;
     object-fit: cover;
     position: relative;
@@ -639,11 +716,21 @@ footer a:hover {
     padding: 2rem 1rem;
   }
 
-  #features {
+  .about-section {
+    color: var(--color-text);
+    padding: 2rem 1rem;
+    background-color: var(--color-bg);
+    border: 0.1px solid #d1d0ce;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 20px var(--color-box-shadow);
+    border-radius: 12px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-position: top;
+    text-align: center;
   }
 
   footer {
@@ -680,7 +767,6 @@ footer a:hover {
 
 .hero #hero-logo {
   margin: 0px 27rem 4.1rem 7rem;
-
   transform: scale(1.9);
   transform-origin: center;
 }

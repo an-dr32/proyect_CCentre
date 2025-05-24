@@ -34,23 +34,51 @@ document.addEventListener("DOMContentLoaded", () => {
       x: x * (fontSize + columnSpacing),
       charOffsets: [],
     }));
+    console.log("Columns initialized:", {
+      columnCount,
+      columnsLength: columns.length,
+    });
   }
 
+  let canvasCssHeight = 0;
+
   function resizeCanvas() {
+    const dpr = window.devicePixelRatio || 1;
+
     const cssWidth = window.innerWidth * 0.97;
     const cssHeight = window.innerHeight * 0.65;
+    canvasCssHeight = cssHeight; // <-- store it in CSS pixels
 
     canvas.style.width = `${cssWidth}px`;
     canvas.style.height = `${cssHeight}px`;
 
-    canvas.width = cssWidth * dpr;
-    canvas.height = cssHeight * dpr;
+    canvas.width = Math.floor(cssWidth * dpr);
+    canvas.height = Math.floor(cssHeight * dpr);
 
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.scale(dpr, dpr);
 
+    console.log("Canvas resized:", {
+      dpr,
+      cssWidth,
+      cssHeight,
+      actualWidth: canvas.width,
+      actualHeight: canvas.height,
+    });
+
     initEqualizer();
   }
+
+  // Call once
+  resizeCanvas();
+  requestAnimationFrame(draw);
+
+  window.addEventListener("resize", resizeCanvas);
+  window.addEventListener("pageshow", resizeCanvas);
+
+  // Add event listeners
+  window.addEventListener("resize", resizeCanvas);
+  window.addEventListener("pageshow", resizeCanvas);
 
   document.addEventListener("mousemove", (e) => {
     const button = document.querySelector(".cta-button");
@@ -80,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       for (let j = 0; j < dynamicHeight; j++) {
         const baseX = col.x;
-        const baseY = canvas.height - j * fontSize;
+        const baseY = canvasCssHeight - j * fontSize;
 
         if (!col.charOffsets[j]) {
           col.charOffsets[j] = { x: baseX, y: baseY };
@@ -180,9 +208,6 @@ document.addEventListener("DOMContentLoaded", () => {
       cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
     }
   });
-
-  resizeCanvas();
-  requestAnimationFrame(draw);
 });
 
 // === LOGO ANIMATION ==
@@ -190,12 +215,12 @@ const logoInstances = [
   {
     line1Id: "navbar-line1",
     line2Id: "navbar-line2",
-    text: ["CODE", "CENTRE"],
+    text: ["C0D3", "CENTRE"],
   },
   {
     line1Id: "hero-line1",
     line2Id: "hero-line2",
-    text: ["CODE", "CENTRE"],
+    text: ["C0D3", "CENTRE"],
   },
 ];
 
@@ -380,6 +405,7 @@ document.addEventListener("DOMContentLoaded", () => {
          
           <div class="class-content">
             <h3>${cls.title}</h3>
+            <span>${cls.date}</span>
              <img src="${cls.image}" alt="${cls.title}" />
             <p>${cls.description}</p>
             <div class="class-actions">
