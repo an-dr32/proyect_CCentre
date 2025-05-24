@@ -881,7 +881,52 @@ footer a:hover {
   #mobileMenu ul li.actions {
     display: flex;
     flex-direction: row;
-    gap: 0.5rem;
+    gap: 1.2rem;
+  }
+
+  .hero {
+    transform: translateY(-5rem); /* less aggressive on mobile */
+    height: auto;
+    padding: 15rem 1rem 1rem 2rem;
+    margin-bottom: 75%;
+    text-align: left;
+  }
+  .hero .logo-wrapper #hero-logo {
+    margin-left: 14rem;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+    text-align: center;
+    max-width: 80%;
+  }
+  #click-through-zone {
+    position: absolute;
+    z-index: 100;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: auto; /* ✅ Clickable */
+  }
+  .cta-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  .class-card {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--color-bg-alt-gray);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 0.1px solid #d1d0ce;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.05) inset;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Ensures equal height if used in a grid */
   }
 
   .classes-section {
