@@ -425,10 +425,12 @@ topSentinel.style.width = "100%";
 document.body.prepend(topSentinel);
 
 // Start observing
-if (scrollCue && targetSection) {
-  hideCueObserver.observe(targetSection);
-  showCueObserver.observe(topSentinel);
-}
+setTimeout(() => {
+  if (scrollCue && targetSection) {
+    hideCueObserver.observe(targetSection);
+    showCueObserver.observe(topSentinel);
+  }
+}, 100); // slight buffer
 
 // JSON DATA FOR COLLEGE CLASSES
 // Fetching college classes data from JSON file
@@ -446,9 +448,11 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      classes.forEach((cls) => {
+      classes.forEach((cls, i) => {
         const card = document.createElement("div");
         card.classList.add("class-card");
+
+        card.style.transitionDelay = `${i * 100}ms`;
         card.innerHTML = `
          
           <div class="class-content">
@@ -517,3 +521,25 @@ document.getElementById("scrollCue").addEventListener("click", () => {
     });
   }
 });
+
+const classesSection = document.getElementById("college-classes");
+
+const revealObserver = new IntersectionObserver(
+  ([entry]) => {
+    if (entry.isIntersecting) {
+      classesSection.classList.add("visible");
+      revealObserver.unobserve(classesSection); // animate only once
+    }
+  },
+  {
+    threshold: 0.1,
+  }
+);
+
+// Start observing after content has been rendered
+if (classesSection) {
+  // Delay slightly to ensure layout is ready
+  setTimeout(() => {
+    revealObserver.observe(classesSection);
+  }, 100);
+}
