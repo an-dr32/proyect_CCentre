@@ -507,3 +507,13 @@ mobileMenu.addEventListener("mousemove", (e) => {
   const walk = (x - startX) * 2; // scroll speed multiplier
   mobileMenu.scrollLeft = scrollLeft - walk;
 });
+
+document.getElementById("scrollCue").addEventListener("click", () => {
+  const target = document.getElementById("college-classes");
+  if (target) {
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+});

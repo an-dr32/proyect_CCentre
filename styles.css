@@ -963,9 +963,9 @@ footer a:hover {
   align-items: center;
   justify-content: center;
   z-index: 100;
-  pointer-events: none;
   transition: opacity 0.4s ease, transform 0.4s ease;
   opacity: 1;
+  cursor: pointer;
 }
 
 .scroll-cue.hidden {
