@@ -305,7 +305,7 @@ section {
 #college-classes {
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition: opacity 0.6s ease, transform 0.6s ease;
   will-change: transform, opacity;
 }
 
@@ -324,7 +324,6 @@ section {
   opacity: 1;
   transform: translateY(0);
 }
-
 
 .classes-section {
   display: grid;
@@ -527,6 +526,7 @@ footer a:hover {
 @media (max-width: 768px) {
   #asciiCanvas {
     margin-top: 1rem;
+    pointer-events: none;
   }
 
   .hamburger {
@@ -643,7 +643,7 @@ footer a:hover {
     transform: translateY(-5rem); /* less aggressive on mobile */
     height: auto;
     padding: 15rem 1rem 1rem 1rem;
-    margin-bottom: 75%;
+    margin-bottom: 45%;
     text-align: left;
   }
 
@@ -924,7 +924,7 @@ footer a:hover {
     transform: translateY(-5rem); /* less aggressive on mobile */
     height: auto;
     padding: 15rem 1rem 1rem 2rem;
-    margin-bottom: 75%;
+    margin-bottom: 25%;
     text-align: left;
   }
   .hero .logo-wrapper #hero-logo {

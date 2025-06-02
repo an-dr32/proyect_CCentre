@@ -1,4 +1,6 @@
 const asciiChars = "!@#$%^&*()_+=-[]{}|;:,.<>?/0123456789";
+const canvas = document.getElementById("asciiCanvas");
+let classCardsRendered = false;
 
 document.addEventListener("DOMContentLoaded", () => {
   const canvas = document.getElementById("asciiCanvas");
@@ -434,7 +436,11 @@ setTimeout(() => {
 
 // JSON DATA FOR COLLEGE CLASSES
 // Fetching college classes data from JSON file
+
 document.addEventListener("DOMContentLoaded", () => {
+  if (classCardsRendered) return;
+  classCardsRendered = true;
+
   fetch("data/classes.json")
     .then((response) => {
       if (!response.ok)
@@ -448,34 +454,62 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      container.innerHTML = ""; // Prevent duplicates
+
       classes.forEach((cls, i) => {
         const card = document.createElement("div");
         card.classList.add("class-card");
-
         card.style.transitionDelay = `${i * 100}ms`;
         card.innerHTML = `
-         
-          <div class="class-content">
-            <h3>${cls.title}</h3>
-            <span>${cls.date}</span>
-             <img src="${cls.image}" alt="${cls.title}" />
-            <p>${cls.description}</p>
-            <div class="class-actions">
-              <a href="${cls.detailsLink}" class="btn primary">View Details</a>
-              <a href="${cls.enrollLink}" class="btn secondary">Enroll Now</a>
-            </div>
-              <ul class="class-tags">
-                <li><span class="check">✓</span><span class="text">${cls.time}</span></li>
-                <li><span class="check">✓</span><span class="text">${cls.duration}</span></li>
-                <li><span class="check">✓</span><span class="text">${cls.level}</span></li>
-                <li><span class="check">✓</span><span class="text">${cls.location}</span></li>
-              </ul>
+        <div class="class-content">
+          <h3>${cls.title}</h3>
+          <span>${cls.date}</span>
+          <img src="${cls.image}" alt="${cls.title}" />
+          <p>${cls.description}</p>
+          <div class="class-actions">
+            <a href="${cls.detailsLink}" class="btn primary">View Details</a>
+            <a href="${cls.enrollLink}" class="btn secondary">Enroll Now</a>
           </div>
-          <div class="class-price-banner">${cls.price}</div>
-        `;
+          <ul class="class-tags">
+            <li><span class="check">✓</span><span class="text">${cls.time}</span></li>
+            <li><span class="check">✓</span><span class="text">${cls.duration}</span></li>
+            <li><span class="check">✓</span><span class="text">${cls.level}</span></li>
+            <li><span class="check">✓</span><span class="text">${cls.location}</span></li>
+          </ul>
+        </div>
+        <div class="class-price-banner">${cls.price}</div>
+      `;
         container.appendChild(card);
       });
+
+      function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return rect.top < window.innerHeight && rect.bottom >= 0;
+      }
+
+      // 🧠 Wait until next frame to ensure layout has updated
+      requestAnimationFrame(() => {
+        const sentinel = document.getElementById("college-classes-sentinel");
+
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              const container = document.getElementById("college-classes");
+              container.classList.add("visible");
+              observer.unobserve(sentinel);
+            }
+          },
+          {
+            threshold: 0.1,
+          }
+        );
+
+        if (sentinel) {
+          observer.observe(sentinel);
+        }
+      });
     })
+
     .catch((err) => {
       console.error("Failed to load class data:", err);
     });
@@ -519,27 +553,10 @@ document.getElementById("scrollCue").addEventListener("click", () => {
       behavior: "smooth",
       block: "start",
     });
+
+    // 🛠 Manual fallback animation trigger
+    setTimeout(() => {
+      target.classList.add("visible");
+    }, 500); // give scroll a moment
   }
 });
-
-const classesSection = document.getElementById("college-classes");
-
-const revealObserver = new IntersectionObserver(
-  ([entry]) => {
-    if (entry.isIntersecting) {
-      classesSection.classList.add("visible");
-      revealObserver.unobserve(classesSection); // animate only once
-    }
-  },
-  {
-    threshold: 0.1,
-  }
-);
-
-// Start observing after content has been rendered
-if (classesSection) {
-  // Delay slightly to ensure layout is ready
-  setTimeout(() => {
-    revealObserver.observe(classesSection);
-  }, 100);
-}
