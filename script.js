@@ -504,7 +504,7 @@ document.addEventListener("DOMContentLoaded", () => {
         card.innerHTML = `
           <img src="${cls.image}" alt="${cls.title}" class="class-image" />
           <div class="class-content">
-            <h3>${cls.title}</h3>
+            <span class="highlight"><h3>${cls.title}</h3></span>
             <span class="date">${cls.date}</span>
             <p>${cls.description}</p>
             <div class="class-actions">
