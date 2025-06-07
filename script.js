@@ -244,6 +244,11 @@ const logoInstances = [
     line2Id: "hero-line2",
     text: ["C0D3", "CENTRE"],
   },
+  {
+    line1Id: "footer-line1",
+    line2Id: "footer-line2",
+    text: ["C0D3", "CENTRE"],
+  },
 ];
 
 function setupText(line1Id, line2Id, text) {
@@ -355,6 +360,42 @@ const observer = new IntersectionObserver((entries) => {
 });
 fadeEls.forEach((el) => observer.observe(el));
 
+const whyCards = document.querySelectorAll(".why-card");
+
+const staggerObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const delay = entry.target.dataset.delay || 0;
+      setTimeout(() => {
+        entry.target.classList.add("visible");
+      }, delay);
+    }
+  });
+});
+
+whyCards.forEach((card) => {
+  staggerObserver.observe(card);
+
+  // Mobile collapse behavior
+  card.addEventListener("click", () => {
+    if (window.innerWidth <= 768) {
+      card.classList.toggle("open");
+    }
+  });
+});
+
+const animatedIcons = document.querySelectorAll(".icon[data-animate]");
+
+const iconObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+});
+
+animatedIcons.forEach((icon) => iconObserver.observe(icon));
+
 // === HAMBURGER MENU ===
 
 function enableCanvasInteraction() {
@@ -461,24 +502,25 @@ document.addEventListener("DOMContentLoaded", () => {
         card.classList.add("class-card");
         card.style.transitionDelay = `${i * 100}ms`;
         card.innerHTML = `
-        <div class="class-content">
-          <h3>${cls.title}</h3>
-          <span>${cls.date}</span>
-          <img src="${cls.image}" alt="${cls.title}" />
-          <p>${cls.description}</p>
-          <div class="class-actions">
-            <a href="${cls.detailsLink}" class="btn primary">View Details</a>
-            <a href="${cls.enrollLink}" class="btn secondary">Enroll Now</a>
+          <img src="${cls.image}" alt="${cls.title}" class="class-image" />
+          <div class="class-content">
+            <h3>${cls.title}</h3>
+            <span class="date">${cls.date}</span>
+            <p>${cls.description}</p>
+            <div class="class-actions">
+              <a href="${cls.detailsLink}" class="btn primary">View Details</a>
+              <a href="${cls.enrollLink}" class="btn secondary">Enroll Now</a>
+            </div>
+            <ul class="class-tags">
+              <li><span class="check">✓</span><span class="text">${cls.time}</span></li>
+              <li><span class="check">✓</span><span class="text">${cls.duration}</span></li>
+              <li><span class="check">✓</span><span class="text">${cls.level}</span></li>
+              <li><span class="check">✓</span><span class="text">${cls.location}</span></li>
+            </ul>
           </div>
-          <ul class="class-tags">
-            <li><span class="check">✓</span><span class="text">${cls.time}</span></li>
-            <li><span class="check">✓</span><span class="text">${cls.duration}</span></li>
-            <li><span class="check">✓</span><span class="text">${cls.level}</span></li>
-            <li><span class="check">✓</span><span class="text">${cls.location}</span></li>
-          </ul>
-        </div>
-        <div class="class-price-banner">${cls.price}</div>
-      `;
+          <div class="class-price-banner">${cls.price}</div>
+        `;
+
         container.appendChild(card);
       });
 
@@ -559,4 +601,11 @@ document.getElementById("scrollCue").addEventListener("click", () => {
       target.classList.add("visible");
     }, 500); // give scroll a moment
   }
+});
+
+window.addEventListener("scroll", () => {
+  const footerParallax = document.querySelector(".footer-parallax-bg");
+  if (!footerParallax) return;
+  const scrollY = window.scrollY;
+  footerParallax.style.transform = `translateY(${scrollY * 0.1}px)`;
 });

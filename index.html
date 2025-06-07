@@ -17,6 +17,11 @@
       href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
       rel="stylesheet"
     />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
   </head>
 
   <body>
@@ -93,69 +98,149 @@
 
       <section id="college-classes" class="classes-section"></section>
       <section class="about-section">
-        <h2>About Us</h2>
-        <p>
-          At My College, we are dedicated to providing a transformative
-          educational experience. Our programs are designed to equip students
-          with the skills and knowledge they need to succeed in their careers.
-        </p>
+        <section id="why-codigo-abierto" class="why-section fade-in">
+          <h2>
+            ¿Por qué estudiar en <span class="highlight">Código Abierto?</span>
+          </h2>
+          <p class="intro-text">
+            Somos pioneros en inteligencia artificial y tecnologías de
+            vanguardia en la Costa.
+          </p>
 
-        <section class="testimonials">
-          <h2>What Our Students Say</h2>
-          <div class="testimonial">
-            <p>
-              "My College has transformed my life. The opportunities here are
-              endless!"
-            </p>
-            <cite>- Student A</cite>
+          <div class="why-features">
+            <div class="why-card" data-delay="0">
+              <div class="icon-title">
+                <i
+                  class="fa-solid fa-chalkboard-teacher icon fa-bounce"
+                  data-animate
+                ></i>
+                <h3>Presencialidad y Mentores Expertos</h3>
+              </div>
+              <p>
+                Nuestros profesores son profesionales experimentados que
+                trabajan en la industria...
+              </p>
+            </div>
+
+            <div class="why-card" data-delay="100">
+              <div class="icon-title">
+                <i
+                  class="fa-solid fa-briefcase icon fa-bounce"
+                  data-animate
+                ></i>
+                <h3>Preparación para el mundo laboral</h3>
+              </div>
+              <p>
+                Al cursar los diplomados tendrás acceso gratuito a nuestro
+                seminario de empleabilidad...
+              </p>
+            </div>
+
+            <div class="why-card" data-delay="200">
+              <div class="icon-title">
+                <i class="fa-solid fa-rocket icon fa-bounce" data-animate></i>
+                <h3>Educación teórico/práctica alineada</h3>
+              </div>
+              <p>
+                El mundo de la tecnología avanza muy rápido y es crucial que
+                aprendas los estándares...
+              </p>
+            </div>
           </div>
-          <div class="testimonial">
+
+          <div class="location-block">
+            <h3>Nuestra sede</h3>
+            <p><strong>Cra. 50 #72-126</strong></p>
             <p>
-              "The faculty is incredibly supportive and knowledgeable. I
-              couldn't ask for a better experience."
+              Con una ubicación privilegiada en El Prado, la sede de Código
+              Abierto se ubica en una posición central en Barranquilla. Con
+              instalaciones cómodas y adaptadas a las necesidades de nuestros
+              estudiantes.
             </p>
-            <cite>- Student B</cite>
-          </div>
-          <div class="testimonial">
             <p>
-              "The campus life is vibrant and full of energy. I've made lifelong
-              friends here."
+              Este es un lugar mágico donde las cosas suceden y desde donde el
+              Atlántico y el Caribe se están convirtiendo en el nuevo epicentro
+              tech de Colombia.
             </p>
-            <cite>- Student C</cite>
+            <div class="map-embed">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.6292279415977!2d-74.79446338523702!3d10.999420358694939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42d12e8a8e191%3A0xdec7cf26dc0b8120!2sCra.%2050%20%2372-126%2C%20Barranquilla%2C%20Atl%C3%A1ntico%2C%20Colombia!5e0!3m2!1sen!2sco!4v1717777200000!5m2!1sen!2sco"
+                width="100%"
+                height="300"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
         </section>
-
-        <section class="cta">
-          <h2>Join Us Today!</h2>
-          <p>
-            Take the first step towards a brighter future. Apply now and become
-            part of our community.
-          </p>
-          <button href="#" class="cta-button">Apply Now</button>
-        </section>
-
-        <footer>
-          <p>&copy; 2023 My College. All rights reserved.</p>
-          <ul class="social-media">
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">LinkedIn</a></li>
-          </ul>
-          <p>
-            Contact us:
-            <a href="mailto:email@mycollege.com">email@mycollege.com</a>
-          </p>
-        </footer>
-
-        <!-- Scroll Cue -->
-        <div id="scrollCue" class="scroll-cue">
-          <span class="scroll-symbol">↓</span>
-        </div>
-
-        <!-- Scripts -->
-        <script src="script.js"></script>
       </section>
     </div>
+
+    <footer class="codigo-footer fade-in">
+      <div class="footer-content">
+        <!-- Left: Logo and tagline -->
+        <div class="footer-brand">
+          <div class="logo-wrapper">
+            <div class="logo" id="footer-logo">
+              <div class="line" id="footer-line1"></div>
+              <div class="line" id="footer-line2"></div>
+            </div>
+          </div>
+          <p>
+            Transformando el futuro a través de la tecnología y la educación.
+          </p>
+        </div>
+
+        <!-- Middle: Sitemap -->
+        <div class="footer-nav">
+          <h3>Mapa del Sitio</h3>
+          <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Eventos</a></li>
+            <li><a href="#">Programas</a></li>
+            <li><a href="#">Fundación</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Right: Contact -->
+        <div class="footer-contact">
+          <h3>Contacto</h3>
+          <p>
+            <i class="fa-solid fa-envelope"></i> contacto@codigoabierto.tech
+          </p>
+          <p><i class="fa-solid fa-phone"></i> +57 (300) 5523872</p>
+
+          <h3>Ubicación</h3>
+          <p>
+            <i class="fa-solid fa-location-dot"></i> Cra. 50 #72-126, El Prado,
+            Barranquilla
+          </p>
+          <a
+            href="https://www.google.com/maps?q=Cra.+50+%2372-126,+El+Prado,+Barranquilla"
+            target="_blank"
+            class="map-link"
+          >
+            <i class="fa-solid fa-map-location-dot"></i> Ver en Google Maps
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Fundación Código Abierto. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Scroll Cue -->
+    <div id="scrollCue" class="scroll-cue">
+      <span class="scroll-symbol">↓</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
   </body>
 </html>
