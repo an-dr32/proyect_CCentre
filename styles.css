@@ -372,6 +372,7 @@ section {
 }
 
 .class-content h3 {
+  font-family: Orbitron;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -380,7 +381,7 @@ section {
   font-size: 2rem;
   color: var(--color-text);
   margin-bottom: 1rem;
-  margin-top: -0.9rem;
+  margin-top: -0.8rem;
 }
 
 .class-content span {
@@ -835,6 +836,7 @@ footer .logo-wrapper {
 
   .classes-section h3 {
     margin-bottom: 1rem;
+    margin-top: 0.5rem;
   }
 
   .class-content .date {
