@@ -1279,6 +1279,10 @@ footer .logo-wrapper {
     height: 100%; /* Ensures equal height if used in a grid */
   }
 
+  .class-content h3 {
+    margin-bottom:0.9rem;
+  }
+
   .classes-section {
     display: flex;
     flex-direction: column;
