@@ -1294,7 +1294,7 @@ footer .logo-wrapper {
     text-wrap: wrap;
   }
 
-  .class-content .highlight{
+  .class-content .highlight {
     margin-bottom: auto;
   }
 
@@ -1306,6 +1306,82 @@ footer .logo-wrapper {
   }
   .classes-section .class-tags {
     margin-top: 2rem;
+  }
+}
+
+@media (max-width: 392px) {
+  #asciiCanvas {
+    width: 95vw;
+    height: 55vh;
+    top: 15%;
+  }
+
+  header {
+    padding: 0.2rem;
+    font-size: xx-small;
+  }
+
+  header h2 {
+    margin-right: 0.5rem;
+  }
+
+  header button {
+    padding: 0.3rem 0.8rem;
+    font-size: x-small;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .about-section {
+    padding: 1.5rem 0.5rem;
+  }
+
+  /* Class title adjustments */
+  .class-content .highlight h3 {
+    font-size: 1rem;
+    padding-top: 0.3rem;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    max-width: 100%;
+    display: block;
+    color: var(--color-text);
+    margin-top: -0.5rem;
+  }
+
+  .class-content {
+    padding: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    position: relative;
+    z-index: 1;
+  }
+
+  .class-content .highlight {
+    display: block;
+    width: 100%;
+    height: 3rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    margin-bottom: 0rem;
+    margin-top: 0;
+  }
+
+  /* Adjust class card overflow for small screens */
+  .class-card {
+    overflow: visible;
   }
 }
 
