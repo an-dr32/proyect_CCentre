@@ -876,6 +876,16 @@ footer .logo-wrapper {
     overflow: visible;
   }
 
+  /* Adjust ASCII canvas for 392px */
+  #asciiCanvas {
+    inset: 0;
+    left: 50%;
+    top: 11%; /* top 25% leaves 75% at the bottom */
+    width: 97vw; /* 90% of the viewport width */
+    height: 35vh; /* Reduced height for smaller screens */
+    transform: translateX(-50%); /* center horizontally */
+  }
+
   /* About section adjustments */
   .about-section,
   #why-codigo-abierto {
