@@ -801,6 +801,242 @@ footer .logo-wrapper {
   display: none;
 }
 
+@media (max-width: 392px) {
+  #asciiCanvas {
+    width: 95vw;
+    height: 55vh;
+    top: 15%;
+  }
+
+  header {
+    padding: 0.2rem;
+    font-size: xx-small;
+  }
+
+  header h2 {
+    margin-right: 0.5rem;
+  }
+
+  header button {
+    padding: 0.3rem 0.8rem;
+    font-size: x-small;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .about-section {
+    padding: 1.5rem 0.5rem;
+  }
+
+  /* Class title adjustments */
+  .class-content .highlight h3 {
+    font-size: 1rem;
+    padding-top: 0.3rem;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    max-width: 100%;
+    display: block;
+    color: var(--color-text);
+    margin-top: -0.5rem;
+  }
+
+  .class-content {
+    padding: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    position: relative;
+    z-index: 1;
+  }
+
+  .class-content .highlight {
+    display: block;
+    width: 100%;
+    height: 3rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    margin-bottom: 0rem;
+    margin-top: 0;
+  }
+
+  /* Adjust class card overflow for small screens */
+  .class-card {
+    overflow: visible;
+  }
+
+  /* About section adjustments */
+  .about-section,
+  #why-codigo-abierto {
+    width: 95%;
+    max-width: 350px;
+    margin: 1rem auto;
+    padding: 1rem;
+    background-color: var(--color-bg);
+    border: 0.1px solid #d1d0ce;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Scroll cue adjustments for mobile */
+  .scroll-cue {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 70px;
+    border: 2px solid var(--color-primary);
+    background: var(--color-bg);
+    color: var(--color-primary);
+    font-family: "Orbitron", monospace;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    pointer-events: auto;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    opacity: 1;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+  #scrollCue.tapped {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+
+  .scroll-cue.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+  }
+
+  .scroll-symbol {
+    transform-origin: center top;
+    animation: bounceDown 1.5s infinite;
+    display: inline-block;
+    margin-top: -15px;
+    font-size: 2.5rem;
+  }
+
+  /* Typography for both sections */
+  .about-section h2,
+  #why-codigo-abierto h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .about-section p,
+  #why-codigo-abierto p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    text-align: justify;
+  }
+
+  .about-section ul,
+  #why-codigo-abierto ul {
+    padding-left: 1rem;
+    margin: 1rem 0;
+  }
+
+  .about-section li,
+  #why-codigo-abierto li {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    text-align: justify;
+  }
+
+  /* Why Codigo Abierto section adjustments */
+  #why-codigo-abierto {
+    width: 95%;
+    max-width: 350px;
+    margin: 1rem auto;
+    padding: 1rem;
+    background-color: var(--color-bg);
+    border: 0.1px solid #d1d0ce;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  #why-codigo-abierto h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  #why-codigo-abierto p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    text-align: justify;
+  }
+
+  #why-codigo-abierto ul {
+    padding-left: 1rem;
+    margin: 1rem 0;
+  }
+
+  #why-codigo-abierto li {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    text-align: justify;
+  }
+
+  .about-section h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  .about-section p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    text-align: justify;
+    width: 100%;
+  }
+
+  .about-section ul {
+    padding-left: 1rem;
+    margin: 1rem 0;
+    width: 100%;
+  }
+
+  .about-section li {
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    text-align: justify;
+    width: 100%;
+  }
+
+  .about-section .cta-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+    width: 100%;
+    display: block;
+  }
+}
+
 @media (max-width: 1200px) {
   #asciiCanvas {
     margin-top: 1.8rem;
@@ -1306,169 +1542,6 @@ footer .logo-wrapper {
   }
   .classes-section .class-tags {
     margin-top: 2rem;
-  }
-}
-
-@media (max-width: 392px) {
-  #asciiCanvas {
-    width: 95vw;
-    height: 55vh;
-    top: 15%;
-  }
-
-  header {
-    padding: 0.2rem;
-    font-size: xx-small;
-  }
-
-  header h2 {
-    margin-right: 0.5rem;
-  }
-
-  header button {
-    padding: 0.3rem 0.8rem;
-    font-size: x-small;
-  }
-
-  .hero h1 {
-    font-size: 1.5rem;
-  }
-
-  .hero p {
-    font-size: 0.9rem;
-  }
-
-  .about-section {
-    padding: 1.5rem 0.5rem;
-  }
-
-  /* Class title adjustments */
-  .class-content .highlight h3 {
-    font-size: 1rem;
-    padding-top: 0.3rem;
-    white-space: normal;
-    word-wrap: break-word;
-    word-break: break-word;
-    overflow-wrap: break-word;
-    line-height: 1.5;
-    max-width: 100%;
-    display: block;
-    color: var(--color-text);
-    margin-top: -0.5rem;
-  }
-
-  .class-content {
-    padding: 0.5rem;
-    width: 100%;
-    box-sizing: border-box;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-word;
-    position: relative;
-    z-index: 1;
-  }
-
-  .class-content .highlight {
-    display: block;
-    width: 100%;
-    height: 3rem;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-word;
-    margin-bottom: 0rem;
-    margin-top: 0;
-  }
-
-  /* Adjust class card overflow for small screens */
-  .class-card {
-    overflow: visible;
-  }
-
-  /* About section adjustments */
-  .about-section {
-    width: 95%;
-    max-width: 350px;
-    margin: 1rem auto;
-    padding: 1rem;
-    background-color: var(--color-bg);
-    border: 0.1px solid #d1d0ce;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  /* Why Codigo Abierto section adjustments */
-  #why-codigo-abierto {
-    width: 95%;
-    max-width: 350px;
-    margin: 1rem auto;
-    padding: 1rem;
-    background-color: var(--color-bg);
-    border: 0.1px solid #d1d0ce;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  #why-codigo-abierto h2 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-
-  #why-codigo-abierto p {
-    font-size: 0.85rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-    text-align: justify;
-  }
-
-  #why-codigo-abierto ul {
-    padding-left: 1rem;
-    margin: 1rem 0;
-  }
-
-  #why-codigo-abierto li {
-    font-size: 0.8rem;
-    margin-bottom: 0.5rem;
-    text-align: justify;
-  }
-
-  .about-section h2 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    text-align: center;
-  }
-
-  .about-section p {
-    font-size: 0.85rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-    text-align: justify;
-    width: 100%;
-  }
-
-  .about-section ul {
-    padding-left: 1rem;
-    margin: 1rem 0;
-    width: 100%;
-  }
-
-  .about-section li {
-    margin-bottom: 0.5rem;
-    font-size: 0.8rem;
-    text-align: justify;
-    width: 100%;
-  }
-
-  .about-section .cta-button {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.8rem;
-    margin-top: 1rem;
-    width: 100%;
-    display: block;
   }
 }
 

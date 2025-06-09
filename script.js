@@ -529,6 +529,31 @@ document.addEventListener("DOMContentLoaded", () => {
         return rect.top < window.innerHeight && rect.bottom >= 0;
       }
 
+      // Add scroll observer to hide scroll cue
+      let scrollCue = document.querySelector('.scroll-cue');
+      if (scrollCue) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                scrollCue.classList.add('hidden');
+              } else {
+                scrollCue.classList.remove('hidden');
+              }
+            });
+          },
+          {
+            threshold: 0.1, // Trigger when 10% of element is visible
+            rootMargin: '0px'
+          }
+        );
+
+        const collegeClasses = document.getElementById('college-classes');
+        if (collegeClasses) {
+          observer.observe(collegeClasses);
+        }
+      }
+
       // 🧠 Wait until next frame to ensure layout has updated
       requestAnimationFrame(() => {
         const sentinel = document.getElementById("college-classes-sentinel");
